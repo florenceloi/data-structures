@@ -90,7 +90,6 @@ def sort_by_cohort(filename):
 
     return all_students
 
-print sort_by_cohort("cohort_data.txt")
 
 def students_by_house(filename):
     """TODO: Sort students by house.
@@ -123,8 +122,66 @@ def students_by_house(filename):
     instructors = []
 
     # Code goes here
+    file_data = open('cohort_data.txt')
+
+    for line in file_data:
+        data = line.rstrip()
+        data = data.split('|')
+        if data[2] == "Gryffindor":
+            last_name = data[1]
+            gryffindor.append(last_name)# Code goes here
+
+        elif data[2] == "Hufflepuff":
+            last_name = data[1]
+            hufflepuff.append(last_name)
+
+        elif data[2] == "Slytherin":
+            last_name = data[1]
+            slytherin.append(last_name)
+
+        elif data[2] == "Dumbledores_army":
+            last_name = data[1]
+            dumbledores_army.append(last_name)
+
+        elif data[2] == "Order of the Phoenix":
+            last_name = data[1]
+            order_of_the_phoenix.append(last_name)
+
+        elif data[2] == "Ravenclaw":
+            last_name = data[1]
+            ravenclaw.append(last_name)
+
+        elif data[4] == "TA":
+            last_name = data[1]
+            tas.append(last_name)
+
+        elif data[4] == "I":
+            last_name = data[1]
+            instructors.append(last_name)
+
+    gryffindor.sort()
+    hufflepuff.sort()
+    slytherin.sort()
+    dumbledores_army.sort()
+    order_of_the_phoenix.sort()
+    ravenclaw.sort()
+    tas.sort()
+    instructors.sort()
+
+    all_students.append(gryffindor)
+    all_students.append(hufflepuff)
+    all_students.append(slytherin)
+    all_students.append(dumbledores_army)
+    all_students.append(order_of_the_phoenix)
+    all_students.append(ravenclaw)
+    all_students.append(tas)
+    all_students.append(instructors)
 
     return all_students
+
+  
+
+
 
 
 def all_students_tuple_list(filename):
@@ -199,7 +256,7 @@ def find_house_members_by_student_name(student_list):
 
 # print unique_houses("cohort_data.txt")
 # print sort_by_cohort("cohort_data.txt")
-# print students_by_house("cohort_data.txt")
+print students_by_house("cohort_data.txt")
 # all_students_data = all_students_tuple_list("cohort_data.txt")
 # print all_students_data
 # find_cohort_by_student_name(all_students_data)
